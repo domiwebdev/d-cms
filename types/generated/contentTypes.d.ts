@@ -868,6 +868,7 @@ export interface ApiVideoVideo extends Schema.CollectionType {
     singularName: 'video';
     pluralName: 'videos';
     displayName: 'Videos';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -875,6 +876,7 @@ export interface ApiVideoVideo extends Schema.CollectionType {
   attributes: {
     title: Attribute.String;
     important: Attribute.Boolean;
+    link: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
