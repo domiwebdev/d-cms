@@ -876,7 +876,6 @@ export interface ApiVideoVideo extends Schema.CollectionType {
   attributes: {
     title: Attribute.String;
     important: Attribute.Boolean;
-    link: Attribute.String;
     media: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
