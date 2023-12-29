@@ -774,6 +774,7 @@ export interface ApiArticleArticle extends Schema.CollectionType {
     singularName: 'article';
     pluralName: 'articles';
     displayName: 'Articles';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -783,6 +784,7 @@ export interface ApiArticleArticle extends Schema.CollectionType {
     description: Attribute.Text;
     link: Attribute.String;
     category: Attribute.String;
+    image: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -807,6 +809,7 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     singularName: 'blog';
     pluralName: 'blogs';
     displayName: 'Blogs';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -816,6 +819,7 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     description: Attribute.Text;
     category: Attribute.String;
     link: Attribute.String;
+    image: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -844,6 +848,7 @@ export interface ApiPaperPaper extends Schema.CollectionType {
     category: Attribute.String;
     slug: Attribute.String;
     content: Attribute.RichText;
+    image: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -876,7 +881,8 @@ export interface ApiVideoVideo extends Schema.CollectionType {
   attributes: {
     title: Attribute.String;
     important: Attribute.Boolean;
-    media: Attribute.Media;
+    link: Attribute.Media;
+    thumbnail: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
