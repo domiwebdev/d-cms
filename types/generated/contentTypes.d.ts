@@ -830,6 +830,42 @@ export interface ApiBlogBlog extends Schema.CollectionType {
   };
 }
 
+export interface ApiNewsItemNewsItem extends Schema.CollectionType {
+  collectionName: 'news_items';
+  info: {
+    singularName: 'news-item';
+    pluralName: 'news-items';
+    displayName: 'News';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    type: Attribute.Enumeration<['Announcements', 'Dev Updates']>;
+    category: Attribute.Enumeration<['Game', 'Coin', 'Defi']>;
+    link: Attribute.String;
+    image: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::news-item.news-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::news-item.news-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPaperPaper extends Schema.CollectionType {
   collectionName: 'papers';
   info: {
@@ -921,6 +957,7 @@ declare module '@strapi/types' {
       'plugin::i18n.locale': PluginI18NLocale;
       'api::article.article': ApiArticleArticle;
       'api::blog.blog': ApiBlogBlog;
+      'api::news-item.news-item': ApiNewsItemNewsItem;
       'api::paper.paper': ApiPaperPaper;
       'api::video.video': ApiVideoVideo;
     }
