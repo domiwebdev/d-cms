@@ -20,6 +20,7 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^5.2.0",
+    "strapi-plugin-email-designer": "^2.2.1",
     "styled-components": "^5.2.1"
   },
   "author": {
@@ -29,7 +30,7 @@
     "uuid": "35d7a084-3088-4d0b-869e-f503693ee8e5"
   },
   "engines": {
-    "node": "20"
+    "node": "18"
   },
   "license": "MIT"
 }
