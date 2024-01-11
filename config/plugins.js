@@ -38,19 +38,26 @@ module.exports = ({ env }) => ({
           tools: {
             heading: {
               properties: {
-                // text: {
-                //   value: 'This is the new default text!',
-                // },
+                text: {
+                  value: 'Heading',
+                },
+              },
+            },
+            text: {
+              properties: {
+                text: {
+                  value: 'Text',
+                },
               },
             },
           },
           options: {
             features: {
-              // colorPicker: {
-              //   presets: ['#D9E3F0', '#F47373', '#697689', '#37D67A'],
-              // },
+              colorPicker: {
+                presets: ['#1a110a', '#271b13', '#fadbb7', '#c0a28d', '#eb7676', '#4f8bff']
+              },
               // textEditor: {
-              //   cleanPaste: basic
+              //   cleanPaste: "basic"
               // }
             },
             fonts: {
@@ -74,14 +81,62 @@ module.exports = ({ env }) => ({
             },
             mergeTags: [
               {
-                name: 'Content Start',
-                value: '{{ CONTENT_START }}',
-                sample: '[ HEADER ]',
+                name: '_Other',
               },
               {
-                name: 'Content End',
-                value: '{{ CONTENT_END }}',
-                sample: '[ FOOTER ]',
+                name: "_For Templates",
+                mergeTags: [
+                  {
+                    name: 'Is Template',
+                    value: '{{TEMPLATE}}',
+                    sample: '[ TEMPLATE ]',
+                  },
+                  {
+                    name: 'Content Start',
+                    value: '{{CONTENT_START}}',
+                    sample: '[ CONTENT START ]',
+                  },
+                  {
+                    name: 'Content End',
+                    value: '{{CONTENT_END}}',
+                    sample: '[ CONTENT END ]',
+                  },
+                  {
+                    name: 'Privacy Start',
+                    value: '{{PRIVACY_START}}',
+                    sample: '[ PRIVACY START ]',
+                  },
+                  {
+                    name: 'Privacy End',
+                    value: '{{PRIVACY_END}}',
+                    sample: '[ PRIVACY END ]',
+                  },
+                ]
+              },
+              {
+                name: 'Template Top',
+                value: '{{TEMPLATE_TOP}}',
+                sample: '[ INSERT TEMPLATE TOP ]',
+              },
+              {
+                name: 'Template Bottom',
+                value: '{{TEMPLATE_BOTTOM}}',
+                sample: '[ INSERT TEMPLATE BOTTOM ]',
+              },
+              {
+                name: 'Is Mandatory',
+                value: '{{MANDATORY}}',
+                sample: '[ MANDATORY ]',
+              },
+              {
+                name: 'Hide Privacy Section',
+                value: '{{NO_PRIVACY}}',
+                sample: '[ HIDE PRIVACY ]',
+              },
+              {
+                name: 'Is Disabled',
+                value: '{{DISABLED}}',
+                sample: '[ DISABLED ]',
               },
             ],
           },
