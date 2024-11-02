@@ -879,6 +879,41 @@ export interface ApiBlogBlog extends Schema.CollectionType {
   };
 }
 
+export interface ApiDovaDova extends Schema.CollectionType {
+  collectionName: 'dovas';
+  info: {
+    singularName: 'dova';
+    pluralName: 'dovas';
+    displayName: 'Dova';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String & Attribute.Required;
+    Description: Attribute.Text & Attribute.Required;
+    Image: Attribute.Media & Attribute.Required;
+    Animation: Attribute.Media;
+    Token_id: Attribute.Integer & Attribute.Required & Attribute.Unique;
+    Rarity: Attribute.Enumeration<['Epic', 'Legendary', 'Rare', 'Commun']> &
+      Attribute.Required;
+    Type: Attribute.Enumeration<['Enchantment', 'Pet', 'Player Title']> &
+      Attribute.Required;
+    Collection: Attribute.Enumeration<['Glacial']> & Attribute.Required;
+    MaxSupply: Attribute.Integer &
+      Attribute.Required &
+      Attribute.DefaultTo<100>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::dova.dova', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::dova.dova', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNewsItemNewsItem extends Schema.CollectionType {
   collectionName: 'news_items';
   info: {
@@ -1007,6 +1042,7 @@ declare module '@strapi/types' {
       'plugin::i18n.locale': PluginI18NLocale;
       'api::article.article': ApiArticleArticle;
       'api::blog.blog': ApiBlogBlog;
+      'api::dova.dova': ApiDovaDova;
       'api::news-item.news-item': ApiNewsItemNewsItem;
       'api::paper.paper': ApiPaperPaper;
       'api::video.video': ApiVideoVideo;
